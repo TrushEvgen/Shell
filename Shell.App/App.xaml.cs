@@ -8,7 +8,7 @@ namespace Shell.App
     {
         public App()
         {
-            Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+            Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)
@@ -16,12 +16,15 @@ namespace Shell.App
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.DataContext = new LoginViewModel();
 
+            Current.MainWindow = loginWindow;
+
             if (loginWindow.ShowDialog() == true)
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.DataContext = new MainViewModel();
-
+                
                 Current.MainWindow = mainWindow;
+                Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
                 mainWindow.Show();
             }

@@ -82,6 +82,7 @@ namespace Shell.App.ViewModels
 
         private void Login()
         {
+            DialogResult = true;
             //if (loginService.Login(Username, Password, out LoginSettings))
             //{
             //    DialogResult = true;
