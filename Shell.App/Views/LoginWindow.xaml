@@ -30,7 +30,7 @@
         <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="4" Grid.Column="1" FontSize="14" VerticalAlignment="Center"/>
 
         <TextBlock Text="Пароль" FontSize="14" Margin="4" Grid.Row="1" VerticalAlignment="Center"/>
-        <PasswordBox Margin="4" FontSize="14" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+        <PasswordBox Margin="4" FontSize="14" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" PasswordChanged="PasswordBox_PasswordChanged"/>
 
         <CheckBox IsChecked="{Binding Remember}" Content="Запомнить" FontSize="14" Margin="4" Grid.Row="2" VerticalAlignment="Center"/>
         <Button Command="{Binding LoginCommand}" Content="Войти" FontSize="14" Margin="4" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>

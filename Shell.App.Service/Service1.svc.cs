@@ -29,5 +29,80 @@ namespace Shell.App.Service
             }
             return composite;
         }
+
+        //private byte[] CreateHash(string username, SecureString password)
+        //{
+        //    string pwd = ConvertToUnsecureString(password);
+
+        //    pwd.IndexOf(username, pwd.Length % 2);
+
+        //    byte[] input = Encoding.UTF8.GetBytes(pwd);
+
+        //    SHA256 sha256 = SHA256.Create();
+
+        //    byte[] hash = sha256.ComputeHash(input);
+
+        //    return hash;
+        //}
+
+        //public string ConvertToUnsecureString(SecureString secstrPassword)
+        //{
+        //    IntPtr unmanagedString = IntPtr.Zero;
+        //    try
+        //    {
+        //        unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secstrPassword);
+        //        return Marshal.PtrToStringUni(unmanagedString);
+        //    }
+        //    finally
+        //    {
+        //        Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+        //    }
+        //}
+
+        //public bool Login(string username, SecureString password, out LoginSettings loginSettings)
+        //{
+        //    byte[] hash = CreateHash(username, password);
+
+        //    loginSettings = new LoginSettings()
+        //    {
+        //        MenuItems = new List<MenuItem>()
+        //        {
+        //            new MenuItem()
+        //            {
+        //                Header = "File",
+        //                MenuItems = new List<MenuItem>()
+        //                {
+        //                    new MenuItem()
+        //                    {
+        //                        Header = "Open Log"
+        //                    },
+        //                    new MenuItem()
+        //                    {
+        //                        Header = "Exit",
+        //                        Command = new CommandParameter()
+        //                        {
+        //                            Assembly = "Shell.App",
+        //                            Type = "Shell.App.App",
+        //                            Method = "Shutdown",
+        //                        }
+        //                    }
+        //                }
+        //            },
+        //            new MenuItem()
+        //            {
+        //                Header = "Documents",
+        //                MenuItems = new List<MenuItem>()
+        //                {
+        //                    new MenuItem()
+        //                    {
+        //                        Header = "All tenders"
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    };
+
+        //    return true;
+        //}
     }
 }

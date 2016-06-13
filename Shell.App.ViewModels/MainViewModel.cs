@@ -7,6 +7,8 @@ namespace Shell.App.ViewModels
     {
         #region Fields
 
+
+
         #endregion
 
         #region Constructor
