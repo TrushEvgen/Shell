@@ -1,0 +1,140 @@
+﻿<Page x:Class="Shell.App.Views.InitialAskPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Shell.App.Views"
+      xmlns:viewmodels="clr-namespace:Shell.App.ViewModels;assembly=Shell.App.ViewModels"
+      xmlns:models="clr-namespace:Shell.App.Models.Tenders;assembly=Shell.App.Models"
+      mc:Ignorable="d" 
+      d:DesignHeight="600"
+      d:DesignWidth="300"
+      Title="InitialAskPage">
+
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Введите ссылку на тендер:" Margin="8" TextAlignment="Center" Grid.ColumnSpan="2"/>
+            <TextBox Text="{Binding URL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="8" Grid.Row="1" AcceptsReturn="True" />
+            <Button Command="{Binding DownloadCommand}" Content="Загрузить" Padding="8,0" Margin="8" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <!--Поля-->
+                <ListView ItemsSource="{Binding Tender.Fields}" Margin="8">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Header}"></GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <!--Лоты-->
+                <ListView ItemsSource="{Binding Tender.Lots}" Margin="8" Grid.Row="1">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=LotNumber}">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="№ лота"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Item}">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="Предмет заказа"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=NumberAndCount}">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="Количество, Цена заказа"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Status}">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="Статус"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <!--Документы-->
+                <ListView ItemsSource="{Binding Tender.Documents}" Margin="8" Grid.Row="2">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="Имя"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Item}">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="Документ"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <!--События-->
+                <ListView ItemsSource="{Binding Tender.Events}" Margin="8" Grid.Row="3">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Date}">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="Дата"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Time}">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="Время"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=EventName}">
+                                    <GridViewColumn.Header>
+                                        <TextBlock Text="Событие"/>
+                                    </GridViewColumn.Header>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+        </ScrollViewer>
+
+        <Button Command="{Binding AddCommand}" Content="Добавить" Width="100"  Grid.Row="2" Margin="8"/>
+    </Grid>
+    
+</Page>

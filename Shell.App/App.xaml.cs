@@ -1,17 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Shell.App.ViewModels;
+using Shell.App.Views;
 using System.Windows;
 
 namespace Shell.App
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+        }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.DataContext = new LoginViewModel();
+
+            if (loginWindow.ShowDialog() == true)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.DataContext = new MainViewModel();
+
+                Current.MainWindow = mainWindow;
+
+                mainWindow.Show();
+            }
+            else
+            {
+                Current.Shutdown();
+            }
+        }
     }
 }

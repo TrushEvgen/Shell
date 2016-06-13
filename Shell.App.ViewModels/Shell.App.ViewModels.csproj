@@ -40,7 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InitialAskViewModel.cs" />
+    <Compile Include="LoginViewModel.cs" />
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="MenuItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeparatorViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shell.Core\Shell.Core.csproj">
