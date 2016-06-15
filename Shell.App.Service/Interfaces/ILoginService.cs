@@ -16,7 +16,6 @@ namespace Shell.App.Service.Interfaces
         bool boolValue = true;
         string stringValue = "Hello ";
         string stringValue2 = "MamkyEbal";
-        string stringValue3 = "Твою";
 
         [DataMember]
         public bool BoolValue
