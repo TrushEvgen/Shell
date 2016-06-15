@@ -35,7 +35,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,8 +47,11 @@
   <ItemGroup>
     <Compile Include="BooleanToVisibilityConverter.cs" />
     <Compile Include="DialogCloser.cs" />
+    <Compile Include="DialogWindow.cs" />
+    <Compile Include="IcetradeParser.cs" />
     <Compile Include="ObjectResolver.cs" />
     <Compile Include="PageResolver.cs" />
+    <Compile Include="ShellException.cs" />
     <Compile Include="ViewModelsResolver.cs" />
     <Compile Include="Navigation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

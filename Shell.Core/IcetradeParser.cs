@@ -1,16 +1,11 @@
-﻿using Shell.App.Models.Tenders;
-using System;
-using System.IO;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using System.Xml.XPath;
 
-namespace Shell.App.Service
+namespace Shell.Core
 {
-    public class IcetradeParser
+    class IcetradeParser
     {
         //private string documentText = string.Empty;
 

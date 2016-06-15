@@ -6,6 +6,8 @@ namespace Shell.App
 {
     public partial class App : Application
     {
+        
+
         public App()
         {
             Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;

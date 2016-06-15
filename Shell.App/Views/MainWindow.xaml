@@ -10,7 +10,7 @@
         Height="350" 
         Width="525" 
         WindowStartupLocation="CenterScreen"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded" Closing="Window_Closing" StateChanged="Window_StateChanged">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -41,9 +41,11 @@
             </Menu.Resources>
         </Menu>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="_" Margin="4"  Width="22" Height="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="" Margin="4"  Width="22" Height="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Button Content="x" Margin="4"  Width="22" Height="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        </StackPanel>
+        </StackPanel>-->
 
         <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
 
